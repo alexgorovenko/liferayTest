@@ -1,0 +1,47 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.EmployeesDB">
+    <namespace>testtask</namespace>
+	
+    <entity name="Bank" uuid="false" local-service="true" remote-service="false">
+
+        <column name="bankId" type="long" primary="true" id-type="sequence" id-param="id_sequence"/>
+        <column name="bankName" type="String"/>
+        <column name="bik" type="String"/>
+        <column name="adres" type="String"/>
+
+    </entity>
+
+    <entity name="Positions" local-service="true" remote-service="false">
+
+        <column name="positionId" type="long" primary="true" id-type="sequence" id-param="id_sequence"/>
+        <column name="positionName" type="String"/>
+        <column name="isArchived" type="boolean"/>
+    </entity>
+
+    <entity name="Employees" uuid="false" local-service="true" remote-service="false">
+
+        <column name="empId" type="long" primary="true" id-type="sequence" id-param="id_sequence"/>
+        <column name="firstName" type="String"/>
+        <column name="secondName" type="String"/>
+        <column name="lastName" type="String"/>
+        <column name="gender" type="String"/>
+        <column name="birthday" type="Date"/>
+        <column name="emplPosition" type="long"/>
+        <column name="startWork" type="Date"/>
+        <column name="salary" type="long"/>
+        <column name="workPhoneNumber" type="String"/>
+        <column name="phoneNumber" type="String"/>
+        <column name="bank" type="long"/>
+        <column name="isArchived" type="boolean"/>
+
+        <finder name="BankId" return-type="Collection">
+            <finder-column name="bank"/>
+        </finder>
+        <finder name="Name" return-type="Collection">
+            <finder-column name="firstName"/>
+            <finder-column name="secondName"/>
+            <finder-column name="lastName"/>
+        </finder>
+    </entity>
+</service-builder>

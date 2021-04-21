@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.EmployeesDB.service.BankLocalService" class="com.EmployeesDB.service.impl.BankLocalServiceImpl" />
+	<bean id="com.EmployeesDB.service.persistence.BankPersistence" class="com.EmployeesDB.service.persistence.BankPersistenceImpl" parent="basePersistence" />
+	<bean id="com.EmployeesDB.service.EmployeesLocalService" class="com.EmployeesDB.service.impl.EmployeesLocalServiceImpl" />
+	<bean id="com.EmployeesDB.service.persistence.EmployeesPersistence" class="com.EmployeesDB.service.persistence.EmployeesPersistenceImpl" parent="basePersistence" />
+	<bean id="com.EmployeesDB.service.PositionsLocalService" class="com.EmployeesDB.service.impl.PositionsLocalServiceImpl" />
+	<bean id="com.EmployeesDB.service.persistence.PositionsPersistence" class="com.EmployeesDB.service.persistence.PositionsPersistenceImpl" parent="basePersistence" />
+</beans>

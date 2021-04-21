@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.EmployeesDB.model.impl.BankModelImpl">
+		<attributes>
+			<id name="bankId" />
+			<basic name="bankName" />
+			<basic name="bik" />
+			<basic name="adres" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.EmployeesDB.model.impl.EmployeesModelImpl">
+		<attributes>
+			<id name="empId" />
+			<basic name="firstName" />
+			<basic name="secondName" />
+			<basic name="lastName" />
+			<basic name="gender" />
+			<basic name="birthday">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="emplPosition" />
+			<basic name="startWork">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="salary" />
+			<basic name="workPhoneNumber" />
+			<basic name="phoneNumber" />
+			<basic name="bank" />
+			<basic name="isArchived" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.EmployeesDB.model.impl.PositionsModelImpl">
+		<attributes>
+			<id name="positionId" />
+			<basic name="positionName" />
+			<basic name="isArchived" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.EmployeesDB.model.impl.BankImpl" name="Bank">
+		<table name="testtask_Bank" />
+		<attributes />
+	</entity>
+	<entity class="com.EmployeesDB.model.impl.EmployeesImpl" name="Employees">
+		<table name="testtask_Employees" />
+		<attributes />
+	</entity>
+	<entity class="com.EmployeesDB.model.impl.PositionsImpl" name="Positions">
+		<table name="testtask_Positions" />
+		<attributes />
+	</entity>
+</entity-mappings>

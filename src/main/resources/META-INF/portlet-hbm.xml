@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.EmployeesDB.model.Bank" />
+	<import class="com.EmployeesDB.model.Employees" />
+	<import class="com.EmployeesDB.model.Positions" />
+	<class name="com.EmployeesDB.model.impl.BankImpl" table="testtask_Bank">
+		<cache usage="read-write" />
+		<id name="bankId" type="long">
+			<generator class="sequence">
+				<param name="sequence">id_sequence</param>
+			</generator>
+		</id>
+		<property name="bankName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bik" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="adres" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.EmployeesDB.model.impl.EmployeesImpl" table="testtask_Employees">
+		<cache usage="read-write" />
+		<id name="empId" type="long">
+			<generator class="sequence">
+				<param name="sequence">id_sequence</param>
+			</generator>
+		</id>
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="secondName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="birthday" type="org.hibernate.type.TimestampType" />
+		<property name="emplPosition" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="startWork" type="org.hibernate.type.TimestampType" />
+		<property name="salary" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="workPhoneNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phoneNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bank" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="isArchived" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.EmployeesDB.model.impl.PositionsImpl" table="testtask_Positions">
+		<cache usage="read-write" />
+		<id name="positionId" type="long">
+			<generator class="sequence">
+				<param name="sequence">id_sequence</param>
+			</generator>
+		</id>
+		<property name="positionName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="isArchived" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>

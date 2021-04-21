@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<portlet>
+		<portlet-name>test</portlet-name>
+		<display-name>test</display-name>
+		<portlet-class>portlets.BankPortlet</portlet-class>
+
+		<init-param>
+			<name>view-template</name>
+			<value>/portlets/bank/bankMain.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>test</title>
+			<short-title>test</short-title>
+			<keywords>test</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>emplPortlet</portlet-name>
+		<display-name>emplPortlet</display-name>
+		<portlet-class>portlets.EmployePortlet</portlet-class>
+
+		<init-param>
+			<name>view-template</name>
+			<value>/portlets/employe/emplMain.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>emplPortlet</title>
+			<short-title>test</short-title>
+			<keywords>emplPortlet</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>positionPortlet</portlet-name>
+		<display-name>positionPortlet</display-name>
+		<portlet-class>portlets.PositionPortlet</portlet-class>
+
+		<init-param>
+			<name>view-template</name>
+			<value>/portlets/position/posMain.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>positionPortlet</title>
+			<short-title>test</short-title>
+			<keywords>positionPortlet</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+</portlet-app>

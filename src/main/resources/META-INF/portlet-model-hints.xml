@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.EmployeesDB.model.Bank">
+		<field name="bankId" type="long" />
+		<field name="bankName" type="String" />
+		<field name="bik" type="String" />
+		<field name="adres" type="String" />
+	</model>
+	<model name="com.EmployeesDB.model.Employees">
+		<field name="empId" type="long" />
+		<field name="firstName" type="String" />
+		<field name="secondName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="gender" type="String" />
+		<field name="birthday" type="Date" />
+		<field name="emplPosition" type="long" />
+		<field name="startWork" type="Date" />
+		<field name="salary" type="long" />
+		<field name="workPhoneNumber" type="String" />
+		<field name="phoneNumber" type="String" />
+		<field name="bank" type="long" />
+		<field name="isArchived" type="boolean" />
+	</model>
+	<model name="com.EmployeesDB.model.Positions">
+		<field name="positionId" type="long" />
+		<field name="positionName" type="String" />
+		<field name="isArchived" type="boolean" />
+	</model>
+</model-hints>
