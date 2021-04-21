@@ -7,6 +7,8 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.DateFormat" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.EmployeesDB.service.PositionsLocalServiceUtil" %>
+<%@ page import="com.EmployeesDB.service.BankLocalServiceUtil" %>
 <%@ taglib prefix="aui" uri="http://liferay.com/tld/aui" %>
 <form autocomplete="off"/>
 
@@ -96,11 +98,23 @@
         <%
             String str = Employees.getFirstName() + " " + Employees.getSecondName() + " " + Employees.getLastName();
         %>
-        <liferay-ui:search-container-column-text value="<%=str%>" name="Name">
-        </liferay-ui:search-container-column-text>
+        <liferay-ui:search-container-column-text value="<%=str%>" name="Name"/>
+        <liferay-ui:search-container-column-text property="gender" name="Gender"/>
+        <liferay-ui:search-container-column-text value="<%= dateFormat.format(Employees.getBirthday()) %>" name="Birthday"/>
+        <%
+            String pos = PositionsLocalServiceUtil.getPositions(Employees.getEmplPosition()).getPositionName();
+        %>
+        <liferay-ui:search-container-column-text value="<%=pos%>" name="Position"/>
+        <liferay-ui:search-container-column-text value="<%= dateFormat.format(Employees.getStartWork()) %>" name="Start work"/>
+        <liferay-ui:search-container-column-text property="salary" name="Salary"/>
+        <liferay-ui:search-container-column-text property="workPhoneNumber" name="Work phone"/>
+        <liferay-ui:search-container-column-text property="phoneNumber" name="Mobile phone"/>
+        <%
+            String bank = BankLocalServiceUtil.getBank(Employees.getBank()).getBankName();
+        %>
+        <liferay-ui:search-container-column-text value="<%=bank%>" name="Bank"/>
+        <liferay-ui:search-container-column-text property="isArchived" name="Archived"/>
 
-        <liferay-ui:search-container-column-text property="isArchived" name="Archived">
-        </liferay-ui:search-container-column-text>
 
         <liferay-ui:search-container-column-text name="Options">
             <liferay-ui:icon-menu>
