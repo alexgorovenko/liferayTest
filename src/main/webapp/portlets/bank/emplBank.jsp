@@ -11,12 +11,10 @@
 
 <%
     PortletURL backURL = renderResponse.createRenderURL();
-%>
-<liferay-ui:header title="Employees" backURL="<%= backURL.toString() %>" showBackURL="true"/>
-<%
     long id=ParamUtil.getLong(request, "id");
     List<Employees> result = EmployeesLocalServiceUtil.findByBankId(id);
 %>
+<liferay-ui:header title="Employees" backURL="<%= backURL.toString() %>" showBackURL="true"/>
 
 <liferay-ui:search-container>
     <portlet:property value="emplBank" name="emplBank"/>
@@ -27,7 +25,6 @@
     <liferay-ui:search-container-row
             className="com.EmployeesDB.model.Employees"
             modelVar="empl">
-
         <%
             String str = empl.getFirstName() + " " + empl.getSecondName() + " " + empl.getLastName();
         %>

@@ -47,12 +47,12 @@ public class EmployeesLocalServiceClpInvoker {
     private String[] _methodParameterTypes41;
     private String _methodName46;
     private String[] _methodParameterTypes46;
-    private String _methodName47;
-    private String[] _methodParameterTypes47;
     private String _methodName48;
     private String[] _methodParameterTypes48;
     private String _methodName49;
     private String[] _methodParameterTypes49;
+    private String _methodName50;
+    private String[] _methodParameterTypes50;
 
     public EmployeesLocalServiceClpInvoker() {
         _methodName0 = "addEmployees";
@@ -143,22 +143,19 @@ public class EmployeesLocalServiceClpInvoker {
 
         _methodParameterTypes46 = new String[] { "long" };
 
-        _methodName47 = "findByName";
+        _methodName48 = "findByName";
 
-        _methodParameterTypes47 = new String[] {
-                "java.lang.String", "java.lang.String", "java.lang.String"
-            };
+        _methodParameterTypes48 = new String[] { "java.util.List" };
 
-        _methodName48 = "find";
-
-        _methodParameterTypes48 = new String[] {
-                "java.lang.String", "java.lang.String", "java.lang.String",
-                "java.util.Date", "java.util.Date"
-            };
-
-        _methodName49 = "findDate";
+        _methodName49 = "find";
 
         _methodParameterTypes49 = new String[] {
+                "java.util.List", "java.util.Date", "java.util.Date"
+            };
+
+        _methodName50 = "findDate";
+
+        _methodParameterTypes50 = new String[] {
                 "java.util.Date", "java.util.Date"
             };
     }
@@ -269,22 +266,19 @@ public class EmployeesLocalServiceClpInvoker {
             return EmployeesLocalServiceUtil.findByBankId(((Long) arguments[0]).longValue());
         }
 
-        if (_methodName47.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
-            return EmployeesLocalServiceUtil.findByName((java.lang.String) arguments[0],
-                (java.lang.String) arguments[1], (java.lang.String) arguments[2]);
-        }
-
         if (_methodName48.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
-            return EmployeesLocalServiceUtil.find((java.lang.String) arguments[0],
-                (java.lang.String) arguments[1],
-                (java.lang.String) arguments[2], (java.util.Date) arguments[3],
-                (java.util.Date) arguments[4]);
+            return EmployeesLocalServiceUtil.findByName((java.util.List<java.lang.String>) arguments[0]);
         }
 
         if (_methodName49.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes49, parameterTypes)) {
+            return EmployeesLocalServiceUtil.find((java.util.List<java.lang.String>) arguments[0],
+                (java.util.Date) arguments[1], (java.util.Date) arguments[2]);
+        }
+
+        if (_methodName50.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
             return EmployeesLocalServiceUtil.findDate((java.util.Date) arguments[0],
                 (java.util.Date) arguments[1]);
         }

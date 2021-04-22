@@ -278,17 +278,15 @@ public class EmployeesLocalServiceWrapper implements EmployeesLocalService,
 
     @Override
     public java.util.List<com.EmployeesDB.model.Employees> findByName(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName) {
-        return _employeesLocalService.findByName(firstName, secondName, lastName);
+        java.util.List<java.lang.String> name) {
+        return _employeesLocalService.findByName(name);
     }
 
     @Override
     public java.util.List<com.EmployeesDB.model.Employees> find(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName, java.util.Date start, java.util.Date end) {
-        return _employeesLocalService.find(firstName, secondName, lastName,
-            start, end);
+        java.util.List<java.lang.String> name, java.util.Date start,
+        java.util.Date end) {
+        return _employeesLocalService.find(name, start, end);
     }
 
     @Override

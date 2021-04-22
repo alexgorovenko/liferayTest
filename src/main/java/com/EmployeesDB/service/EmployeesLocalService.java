@@ -236,12 +236,11 @@ public interface EmployeesLocalService extends BaseLocalService,
         long bankId);
 
     public java.util.List<com.EmployeesDB.model.Employees> findByName(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName);
+        java.util.List<java.lang.String> name);
 
     public java.util.List<com.EmployeesDB.model.Employees> find(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName, java.util.Date start, java.util.Date end);
+        java.util.List<java.lang.String> name, java.util.Date start,
+        java.util.Date end);
 
     public java.util.List<com.EmployeesDB.model.Employees> findDate(
         java.util.Date start, java.util.Date end);

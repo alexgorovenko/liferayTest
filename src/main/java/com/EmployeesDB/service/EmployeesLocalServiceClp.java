@@ -146,15 +146,12 @@ public class EmployeesLocalServiceClp implements EmployeesLocalService {
 
         _methodName20 = "findByName";
 
-        _methodParameterTypes20 = new String[] {
-                "java.lang.String", "java.lang.String", "java.lang.String"
-            };
+        _methodParameterTypes20 = new String[] { "java.util.List" };
 
         _methodName21 = "find";
 
         _methodParameterTypes21 = new String[] {
-                "java.lang.String", "java.lang.String", "java.lang.String",
-                "java.util.Date", "java.util.Date"
+                "java.util.List", "java.util.Date", "java.util.Date"
             };
 
         _methodName22 = "findDate";
@@ -698,20 +695,13 @@ public class EmployeesLocalServiceClp implements EmployeesLocalService {
 
     @Override
     public java.util.List<com.EmployeesDB.model.Employees> findByName(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName) {
+        java.util.List<java.lang.String> name) {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName20,
                     _methodParameterTypes20,
-                    new Object[] {
-                        ClpSerializer.translateInput(firstName),
-                        
-                    ClpSerializer.translateInput(secondName),
-                        
-                    ClpSerializer.translateInput(lastName)
-                    });
+                    new Object[] { ClpSerializer.translateInput(name) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -728,19 +718,15 @@ public class EmployeesLocalServiceClp implements EmployeesLocalService {
 
     @Override
     public java.util.List<com.EmployeesDB.model.Employees> find(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName, java.util.Date start, java.util.Date end) {
+        java.util.List<java.lang.String> name, java.util.Date start,
+        java.util.Date end) {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName21,
                     _methodParameterTypes21,
                     new Object[] {
-                        ClpSerializer.translateInput(firstName),
-                        
-                    ClpSerializer.translateInput(secondName),
-                        
-                    ClpSerializer.translateInput(lastName),
+                        ClpSerializer.translateInput(name),
                         
                     ClpSerializer.translateInput(start),
                         

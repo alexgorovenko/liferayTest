@@ -1,7 +1,5 @@
-package portlets;
+package com.portlets;
 
-import com.EmployeesDB.model.Bank;
-import com.EmployeesDB.service.BankLocalServiceUtil;
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;

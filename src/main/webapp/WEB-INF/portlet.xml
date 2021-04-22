@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>test</portlet-name>
 		<display-name>test</display-name>
-		<portlet-class>portlets.BankPortlet</portlet-class>
+		<portlet-class>com.portlets.BankPortlet</portlet-class>
 
 		<init-param>
 			<name>view-template</name>
@@ -36,7 +36,7 @@
 	<portlet>
 		<portlet-name>emplPortlet</portlet-name>
 		<display-name>emplPortlet</display-name>
-		<portlet-class>portlets.EmployePortlet</portlet-class>
+		<portlet-class>com.portlets.EmployePortlet</portlet-class>
 
 		<init-param>
 			<name>view-template</name>
@@ -68,7 +68,7 @@
 	<portlet>
 		<portlet-name>positionPortlet</portlet-name>
 		<display-name>positionPortlet</display-name>
-		<portlet-class>portlets.PositionPortlet</portlet-class>
+		<portlet-class>com.portlets.PositionPortlet</portlet-class>
 
 		<init-param>
 			<name>view-template</name>

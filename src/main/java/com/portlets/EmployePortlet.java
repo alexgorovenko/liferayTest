@@ -1,4 +1,4 @@
-package portlets;
+package com.portlets;
 
 import com.EmployeesDB.model.Employees;
 import com.EmployeesDB.service.EmployeesLocalServiceUtil;

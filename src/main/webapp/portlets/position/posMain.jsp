@@ -33,10 +33,10 @@
                 </portlet:renderURL>
                 <liferay-ui:icon image="edit" message="edit" url="<%= editURL %>"/>
 
-                <portlet:actionURL var="delPostion" name="delPostion">
+                <portlet:actionURL var="delPosition" name="delPosition">
                     <portlet:param name="id" value="<%= String.valueOf( position.getPrimaryKey() ) %>"/>
                 </portlet:actionURL>
-                <liferay-ui:icon-delete url="<%=delPostion%>"/>
+                <liferay-ui:icon-delete url="<%=delPosition%>"/>
             </liferay-ui:icon-menu>
         </liferay-ui:search-container-column-text>
 

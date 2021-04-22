@@ -265,15 +265,14 @@ public class EmployeesLocalServiceUtil {
     }
 
     public static java.util.List<com.EmployeesDB.model.Employees> findByName(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName) {
-        return getService().findByName(firstName, secondName, lastName);
+        java.util.List<java.lang.String> name) {
+        return getService().findByName(name);
     }
 
     public static java.util.List<com.EmployeesDB.model.Employees> find(
-        java.lang.String firstName, java.lang.String secondName,
-        java.lang.String lastName, java.util.Date start, java.util.Date end) {
-        return getService().find(firstName, secondName, lastName, start, end);
+        java.util.List<java.lang.String> name, java.util.Date start,
+        java.util.Date end) {
+        return getService().find(name, start, end);
     }
 
     public static java.util.List<com.EmployeesDB.model.Employees> findDate(

@@ -1,14 +1,12 @@
 package com.EmployeesDB.service.impl;
 
 import com.EmployeesDB.service.base.EmployeesLocalServiceBaseImpl;
-import com.liferay.portal.kernel.dao.orm.Criterion;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.*;
 import org.omg.CORBA.SystemException;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -43,15 +41,27 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         return res;
     }
 
-    public List<com.EmployeesDB.model.Employees> findByName(String firstName, String secondName, String lastName) {
+    private Conjunction disjunction(String prop, List<String> param) {
+        Conjunction res = RestrictionsFactoryUtil.conjunction();
+        for (String el : param){
+            res.add(RestrictionsFactoryUtil.ilike(prop, el));
+        }
+        return res;
+    }
+
+    public List<com.EmployeesDB.model.Employees> findByName(List<String> name) {
         List<com.EmployeesDB.model.Employees> res = new ArrayList<com.EmployeesDB.model.Employees>();
         try {
             DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(com.EmployeesDB.model.Employees.class);
-            Criterion criterion = null;
-            criterion = RestrictionsFactoryUtil.eq("firstName", firstName);
-            criterion = RestrictionsFactoryUtil.eq("secondName", secondName);
-            criterion = RestrictionsFactoryUtil.eq("lastName", lastName);
-            dynamicQuery.add(criterion);
+
+            Conjunction conjunction1 = disjunction("firstName", name);
+            Conjunction conjunction2 = disjunction("secondName", name);
+            Conjunction conjunction3 = disjunction("lastName", name);
+            Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
+            disjunction.add(conjunction1);
+            disjunction.add(conjunction1);
+            disjunction.add(conjunction1);
+            dynamicQuery.add(disjunction);
             res = com.EmployeesDB.service.EmployeesLocalServiceUtil.dynamicQuery(dynamicQuery);
         } catch (SystemException e) {
             e.printStackTrace();
@@ -62,16 +72,20 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         return res;
     }
 
-    public List<com.EmployeesDB.model.Employees> find(String firstName, String secondName, String lastName, Date start, Date end) {
+    public List<com.EmployeesDB.model.Employees> find(List<String> name, Date start, Date end) {
         List<com.EmployeesDB.model.Employees> res = new ArrayList<com.EmployeesDB.model.Employees>();
         try {
             DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(com.EmployeesDB.model.Employees.class);
-            Criterion criterion = null;
-            criterion = RestrictionsFactoryUtil.eq("firstName", firstName);
-            criterion = RestrictionsFactoryUtil.eq("secondName", secondName);
-            criterion = RestrictionsFactoryUtil.eq("lastName", lastName);
-            dynamicQuery.add(criterion);
-            dynamicQuery.add(RestrictionsFactoryUtil.between("startWork", start, end));
+
+            Conjunction conjunction1 = disjunction("firstName", name);
+            Conjunction conjunction2 = disjunction("secondName", name);
+            Conjunction conjunction3 = disjunction("lastName", name);
+            Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
+            disjunction.add(conjunction1);
+            disjunction.add(conjunction1);
+            disjunction.add(conjunction1);
+            dynamicQuery.add(disjunction);
+            dynamicQuery.add(RestrictionsFactoryUtil.between("birthday", start, end));
             res = com.EmployeesDB.service.EmployeesLocalServiceUtil.dynamicQuery(dynamicQuery);
         } catch (SystemException e) {
             e.printStackTrace();
