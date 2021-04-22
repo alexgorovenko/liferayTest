@@ -50,7 +50,7 @@
     <%
         boolean dateSet = false;
         boolean nameSet = false;
-        String[] words = null;
+        String[] words;
         List<String>tmp = null;
         List<Employees> result = EmployeesLocalServiceUtil.getEmployeeses(0, EmployeesLocalServiceUtil.getEmployeesesCount());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");

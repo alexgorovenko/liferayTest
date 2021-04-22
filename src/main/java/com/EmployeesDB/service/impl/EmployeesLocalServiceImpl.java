@@ -41,8 +41,8 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         return res;
     }
 
-    private Conjunction disjunction(String prop, List<String> param) {
-        Conjunction res = RestrictionsFactoryUtil.conjunction();
+    private Disjunction disjunction(String prop, List<String> param) {
+        Disjunction res = RestrictionsFactoryUtil.disjunction();
         for (String el : param){
             res.add(RestrictionsFactoryUtil.ilike(prop, el));
         }
@@ -54,13 +54,13 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         try {
             DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(com.EmployeesDB.model.Employees.class);
 
-            Conjunction conjunction1 = disjunction("firstName", name);
-            Conjunction conjunction2 = disjunction("secondName", name);
-            Conjunction conjunction3 = disjunction("lastName", name);
+            Disjunction disjunction1 = disjunction("firstName", name);
+            Disjunction disjunction2 = disjunction("secondName", name);
+            Disjunction disjunction3 = disjunction("lastName", name);
             Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
-            disjunction.add(conjunction1);
-            disjunction.add(conjunction1);
-            disjunction.add(conjunction1);
+            disjunction.add(disjunction1);
+            disjunction.add(disjunction2);
+            disjunction.add(disjunction3);
             dynamicQuery.add(disjunction);
             res = com.EmployeesDB.service.EmployeesLocalServiceUtil.dynamicQuery(dynamicQuery);
         } catch (SystemException e) {
@@ -77,13 +77,13 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         try {
             DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(com.EmployeesDB.model.Employees.class);
 
-            Conjunction conjunction1 = disjunction("firstName", name);
-            Conjunction conjunction2 = disjunction("secondName", name);
-            Conjunction conjunction3 = disjunction("lastName", name);
+            Disjunction disjunction1 = disjunction("firstName", name);
+            Disjunction disjunction2 = disjunction("secondName", name);
+            Disjunction disjunction3 = disjunction("lastName", name);
             Disjunction disjunction = RestrictionsFactoryUtil.disjunction();
-            disjunction.add(conjunction1);
-            disjunction.add(conjunction1);
-            disjunction.add(conjunction1);
+            disjunction.add(disjunction1);
+            disjunction.add(disjunction2);
+            disjunction.add(disjunction3);
             dynamicQuery.add(disjunction);
             dynamicQuery.add(RestrictionsFactoryUtil.between("birthday", start, end));
             res = com.EmployeesDB.service.EmployeesLocalServiceUtil.dynamicQuery(dynamicQuery);
@@ -100,7 +100,7 @@ public class EmployeesLocalServiceImpl extends EmployeesLocalServiceBaseImpl {
         List<com.EmployeesDB.model.Employees> res = new ArrayList<com.EmployeesDB.model.Employees>();
         try {
             DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(com.EmployeesDB.model.Employees.class);
-            dynamicQuery.add(RestrictionsFactoryUtil.between("startWork", start, end));
+            dynamicQuery.add(RestrictionsFactoryUtil.between("birthday", start, end));
             res = com.EmployeesDB.service.EmployeesLocalServiceUtil.dynamicQuery(dynamicQuery);
         } catch (SystemException e) {
             e.printStackTrace();
